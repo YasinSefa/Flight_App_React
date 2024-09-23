@@ -7,14 +7,11 @@ This project is a flight booking application that allows users to browse flights
 - [Project Features](#project-features)
 - [Technologies Used](#technologies-used)
 - [Setup and Installation](#setup-and-installation)
-- [Application Screens](#application-screens)
-  - [Home Page](#home-page)
+  - [Home Page](./Readme_assets/Main.jpeg)
   - [My Flights Page](./Readme_assets/MyFlights.jpeg)
-- [API Usage](#api-usage)
-- [How to Use](#how-to-use)
-- [Project Structure](#project-structure)
-- [Additional Features](#additional-features)
-- [Screenshots](#screenshots)
+- [API Usage](./Readme_assets/Network.jpeg)
+- [Filter](./Readme_assets/Filter.jpeg)
+- [Database](./Readme_assets/MongoDB.jpeg)
 
 ## Project Features
 
