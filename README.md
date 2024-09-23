@@ -9,7 +9,7 @@ This project is a flight booking application that allows users to browse flights
 - [Setup and Installation](#setup-and-installation)
 - [Application Screens](#application-screens)
   - [Home Page](#home-page)
-  - [My Flights Page](#my-flights-page)
+  - [My Flights Page](./Readme_assets/MyFlights.jpeg)
 - [API Usage](#api-usage)
 - [How to Use](#how-to-use)
 - [Project Structure](#project-structure)
