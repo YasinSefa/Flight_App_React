@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { FaPlane, FaTag, FaCompass, FaUser } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   const [bar, setBar] = useState(false);
@@ -11,8 +12,8 @@ const Header = () => {
         <h1>PLANE SCAPE</h1>
       </div>
       <div className={`nav ${bar ? 'open' : ''}`}>
-        <span><FaTag /> <a href="#deals">Deals</a></span>
-        <span><FaCompass /> <a href="#discover">Discover</a></span>
+        <span><FaTag /> <Link to="/">Main</Link></span>
+        <span><FaCompass /> <Link to="/my-flights">My Flights</Link></span>
         <span><FaUser /> <a href="#profile">Sefa Aksoy</a></span>
       </div>
       <div onClick={() => setBar(!bar)} className="bars">

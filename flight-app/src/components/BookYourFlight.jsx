@@ -19,12 +19,6 @@ const BookYourFlight = ({ onSearch }) => {
     });
   };
 
-  console.log(tripType,
-    startDate,
-    endDate,
-    departure,
-    arrival)
-
   return (
     <div className="flight-container">
   <div className="flight-header">

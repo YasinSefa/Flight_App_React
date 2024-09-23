@@ -33,7 +33,6 @@ const FlightsList = ({ filters }) => {
         const matchesDeparture = !departure || flight.publicFlightState?.flightStates?.[0]?.toLowerCase().includes(departure.toLowerCase());
         const matchesArrival = !arrival || flight.route?.destinations?.[0]?.toLowerCase().includes(arrival.toLowerCase());
 
-        console.log(matchesDate,"ABC")
         return matchesDate && matchesDeparture && matchesArrival;
       });
 

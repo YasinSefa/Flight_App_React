@@ -1,14 +1,16 @@
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
+import MyFlightCard from '../components/MyFlightCard';
 
 const MyFlightsPage = () => {
-  const [myFlights, setMyFlights] = useState([]);
+  const [flights, setFlights] = useState([]);
 
   useEffect(() => {
     const fetchMyFlights = async () => {
       try {
-        const response = await fetch('/api/flights');
+        const response = await fetch('http://localhost:5000/api/flights');
         const data = await response.json();
-        setMyFlights(data);
+        setFlights(data);
       } catch (error) {
         console.error('Error fetching my flights:', error);
       }
@@ -19,15 +21,11 @@ const MyFlightsPage = () => {
 
   return (
     <div>
+      <Header></Header>
+      <div className="flight-list">
       <h1>My Flights</h1>
-      <div className="my-flights-list">
-        {myFlights.map(flight => (
-          <div key={flight._id} className="flight-card">
-            <h3>{flight.airline}</h3>
-            <p>Departure: {flight.departureTime}</p>
-            <p>Arrival: {flight.arrivalTime}</p>
-            <p>Price: ${flight.price}</p>
-          </div>
+        {flights.map(flight => (
+          <MyFlightCard key={flight._id} flight={flight} /> 
         ))}
       </div>
     </div>

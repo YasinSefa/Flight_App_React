@@ -38,7 +38,7 @@ const Filter = () => {
             id="arrival-early"
             onChange={() => handleCheckboxChange(setArrivalTime, '5:00 AM - 11:59 AM')}
           />
-          <label htmlFor="arrival-early">5:00 AM - 11:59 AM</label>
+          <label htmlFor="arrival-early">12:00 AM - 11:59 AM</label>
         </div>
         <div className="filter-option">
           <input
@@ -46,7 +46,7 @@ const Filter = () => {
             id="arrival-late"
             onChange={() => handleCheckboxChange(setArrivalTime, '12:00 PM - 5:59 PM')}
           />
-          <label htmlFor="arrival-late">12:00 PM - 5:59 PM</label>
+          <label htmlFor="arrival-late">12:00 PM - 11:59 PM</label>
         </div>
       </div>
 

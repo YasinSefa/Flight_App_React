@@ -1,9 +1,8 @@
 import React from 'react';
 import { format, differenceInMinutes, addHours } from 'date-fns';
 import { FaPlaneDeparture, FaPlaneArrival, FaPlane } from 'react-icons/fa';
-import axios from 'axios';
 
-const FlightCard = ({ flight }) => {
+const MyFlightCard = ({ flight }) => {
   // Validate the flight data before using it
   const departureDate = flight.scheduleDateTime ? new Date(flight.scheduleDateTime) : null;
   const arrivalDate = flight.actualLandingTime ? new Date(flight.actualLandingTime) : null;
@@ -26,57 +25,6 @@ const FlightCard = ({ flight }) => {
   const hours = durationInMinutes !== null ? Math.floor(durationInMinutes / 60) : 'N/A';
   const minutes = durationInMinutes !== null ? durationInMinutes % 60 : 'N/A';
   const durationFormatted = durationInMinutes !== null ? `${hours}h ${minutes}m` : 'N/A';
-
-    // Function to handle booking a flight
-    const bookFlight = async () => {
-      const flightData = {
-        actualLandingTime: flight.actualLandingTime || 'N/A',
-        aircraftType: {
-          iataMain: flight.aircraftType?.iataMain || 'N/A',
-          iataSub: flight.aircraftType?.iataSub || 'N/A',
-        },
-        airlineCode: flight.airlineCode || 'N/A',
-        baggageClaim: {
-          belts: flight.baggageClaim?.belts?.[0] || 'N/A',
-        },
-        codeshares: {
-          codeshares: flight.codeshares?.codeshares?.[0] || 'N/A',
-        },
-        estimatedLandingTime: flight.estimatedLandingTime || 'N/A',
-        expectedTimeOnBelt: flight.expectedTimeOnBelt || 'N/A',
-        flightDirection: flight.flightDirection || 'N/A',
-        flightName: flight.flightName || 'N/A',
-        flightNumber: flight.flightNumber || 'N/A',
-        id: flight.id || 'N/A',
-        isOperationalFlight: flight.isOperationalFlight || false,
-        lastUpdatedAt: flight.lastUpdatedAt || 'N/A',
-        mainFlight: flight.mainFlight || 'N/A',
-        prefixIATA: flight.prefixIATA || 'N/A',
-        prefixICAO: flight.prefixICAO || 'N/A',
-        publicFlightState: {
-          flightStates: flight.publicFlightState?.flightStates?.[0] || 'N/A',
-        },
-        route: {
-          destinations: flight.route?.destinations?.[0] || 'N/A',
-          eu: flight.route?.eu || 'N/A',
-          visa: flight.route?.visa || false,
-        },
-        scheduleDate: flight.scheduleDate || 'N/A',
-        scheduleDateTime: flight.scheduleDateTime || 'N/A',
-        scheduleTime: flight.scheduleTime || 'N/A',
-        schemaVersion: flight.schemaVersion || 'N/A',
-        serviceType: flight.serviceType || 'N/A',
-        terminal: flight.terminal || 'N/A',
-
-      };
-  
-      try {
-        const response = await axios.post('http://localhost:5000/api/flights', flightData);
-        alert('Flight booked successfully!');
-      } catch (error) {
-        alert('Failed to book flight.');
-      }
-    };
 
   return (
     <div className="flight-card">
@@ -121,19 +69,19 @@ const FlightCard = ({ flight }) => {
     
     <div className="flight-info">
     <div className="flight-price">
-      <p>Price: {flight.flightNumber} TL</p>
+      <p>Terminal: {flight.terminal}</p>
     </div>
   </div>
 
   <div className="round-trip">
-    <p>Round Trip</p>
+    <p>AirlineCode: {flight.airlineCode}</p>
   </div>
 
-  <button className="book-flight-button" onClick={bookFlight}>Book Flight</button>
+  <button className="book-flight-button">PNR: {flight.flightName}</button>
 
 
     </div>
   );
 };
 
-export default FlightCard;
+export default MyFlightCard;
